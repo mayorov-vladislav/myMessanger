@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     position: 'relative',
+    marginBottom: 3,
     opacity: 100,
   },
 

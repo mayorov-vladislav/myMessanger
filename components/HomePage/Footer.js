@@ -33,6 +33,7 @@ export default function Footer() {
         <TouchableOpacity onPress={handleProfile}>
             <Image style={styles.footerIcons} source={require('./images/chats/profile.png')} />
         </TouchableOpacity>
+        
     </View>
   );  
 }
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         backgroundColor: '#fff',
-        paddingVertical: 10,
+        paddingVertical: 20,
         flexDirection: 'row',
         justifyContent: 'space-around', 
         borderTopWidth: 1,
