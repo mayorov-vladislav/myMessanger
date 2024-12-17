@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Home from './components/HomePage/Home';
+import { useState } from 'react';
+import MainStack from './navigate';
 
 export default function App() {
+
   return (
-   <Home></Home>
+    <MainStack></MainStack>
   );
+  
 }
 
 const styles = StyleSheet.create({

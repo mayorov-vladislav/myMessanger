@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated, Modal } from 'react-native';
 import Search from './Search';
 import HistoryList from './HistoryList';
-import Footer from './Footer';
 
 export default function Chat() {
   const [chats, setChat] = useState([

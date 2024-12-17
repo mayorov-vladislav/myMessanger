@@ -1,23 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, View, } from 'react-native';
-import Header from './Header';
+import Header from './HomeHeader';
 import Chat from './Chat';
-import Footer from './Footer';
+import HomeFooter from './HomeFooter';
 
 
-export default function Home() {
-  
+export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
       
-      <Header></Header>
+      {/* <Header></Header> */}
   
       <Chat></Chat>
 
-      <Footer></Footer>
+      <HomeFooter  navigation={navigation}></HomeFooter>
 
     </View>
     

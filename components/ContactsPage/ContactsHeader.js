@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated } from 'react-native';
 
-export default function Header() {
+export default function ContactsHeader() {
   
   const handleProfile = () => {
     console.log('User Profile clicked');
@@ -21,17 +21,17 @@ export default function Header() {
     <View style={styles.header}>
         <View style={styles.leftContainer}>
             <TouchableOpacity onPress={handleProfile}>
-            <Image style={styles.userImage} source={require('./images/chats/user-image.png')} />
+            <Image style={styles.userImage} source={require('../HomePage/images/chats/user-image.png')} />
             </TouchableOpacity>
-            <Text style={styles.title}>Chats</Text>
+            <Text style={styles.title}>Contacts</Text>
         </View>
 
         <View style={styles.rightContainer}>
             <TouchableOpacity onPress={handleTakePhoto}>
-            <Image style={styles.headerIcons} source={require('./images/chats/take-a-photo.png')} />
+            <Image style={styles.headerIcons} source={require('../HomePage/images/chats/take-a-photo.png')} />
             </TouchableOpacity>
             <TouchableOpacity onPress={handleNewMessage}>
-            <Image style={styles.headerIcons} source={require('./images/chats/new-message.png')} />
+            <Image style={styles.headerIcons} source={require('../HomePage/images/chats/new-message.png')} />
             </TouchableOpacity>
         </View>
     </View>
@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 12,
+    paddingTop: 40,
     paddingBottom: -15,
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingLeft: 32,
+    paddingRight: 32,
     position: 'relative',
-    marginBottom: 3,
+    marginBottom: -15,
     opacity: 100,
   },
 
