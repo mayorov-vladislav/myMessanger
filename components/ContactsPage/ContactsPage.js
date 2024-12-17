@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated, Modal } from 'react-native';
-import Header from './ContactsHeader';
-import Search from '../HomePage/Search';
+
+import Contacts from './Contacts';
 import ContactsFooter from './ContactsFooter';
 
 export default function ContactsPage({ navigation }) {
@@ -10,8 +10,7 @@ export default function ContactsPage({ navigation }) {
   return (
     <View style={styles.container}>
         
-        <Search></Search>
-
+        <Contacts></Contacts>
         <ContactsFooter navigation={navigation}></ContactsFooter>
     </View>
   );
@@ -26,6 +25,4 @@ const styles = StyleSheet.create({
         position: 'relative', 
       },
   
-
-
 });

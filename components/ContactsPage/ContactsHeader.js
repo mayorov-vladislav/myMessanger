@@ -8,12 +8,12 @@ export default function ContactsHeader() {
     console.log('User Profile clicked');
   }
   
-  const handleTakePhoto = () => {
-    console.log('Take photo clicked');
+  const handleNewChat = () => {
+    console.log('New Chat clicked');
   }
 
-  const handleNewMessage = () => {
-    console.log('New Message clicked');
+  const handleAddContact = () => {
+    console.log('Add Contact clicked');
   }
   
 
@@ -21,17 +21,20 @@ export default function ContactsHeader() {
     <View style={styles.header}>
         <View style={styles.leftContainer}>
             <TouchableOpacity onPress={handleProfile}>
-            <Image style={styles.userImage} source={require('../HomePage/images/chats/user-image.png')} />
+              <Image style={styles.userImage} source={require('../HomePage/images/chats/user-image.png')} />
             </TouchableOpacity>
+            
             <Text style={styles.title}>Contacts</Text>
         </View>
 
         <View style={styles.rightContainer}>
-            <TouchableOpacity onPress={handleTakePhoto}>
-            <Image style={styles.headerIcons} source={require('../HomePage/images/chats/take-a-photo.png')} />
+            <TouchableOpacity onPress={handleNewChat}>
+              <Image style={styles.headerIcons} source={require('./images/open-chat.png')} />
+            
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleNewMessage}>
-            <Image style={styles.headerIcons} source={require('../HomePage/images/chats/new-message.png')} />
+            
+            <TouchableOpacity onPress={handleAddContact}>
+              <Image style={styles.headerIcons} source={require('./images/add-contact.png')} />
             </TouchableOpacity>
         </View>
     </View>
