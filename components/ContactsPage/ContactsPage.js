@@ -10,7 +10,7 @@ export default function ContactsPage({ navigation }) {
   return (
     <View style={styles.container}>
         
-        <Contacts></Contacts>
+        <Contacts navigation={navigation}></Contacts>
         <ContactsFooter navigation={navigation}></ContactsFooter>
     </View>
   );

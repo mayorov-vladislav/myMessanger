@@ -9,10 +9,6 @@ export default function ContactsFooter({ navigation }) {
     const handleChats = () => {
         navigation.navigate('ChatsPage');  
     }
-    
-    const handleContacts = () => {
-        navigation.navigate('ContactsPage');  
-    }
 
     return (
         <View style={styles.footer}>
@@ -20,7 +16,7 @@ export default function ContactsFooter({ navigation }) {
                 <Image style={styles.footerIcons} source={require('./images/chats.png')} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleContacts}>
+            <TouchableOpacity>
                 <Image style={styles.footerIcons} source={require('./images/contacts.png')} />
                 
             </TouchableOpacity>

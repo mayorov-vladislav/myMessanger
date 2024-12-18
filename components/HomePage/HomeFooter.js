@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
-export default function HomeFooter({ navigation }) {
+export default function HomeFooter({ navigation, chats }) {
 
     const handleProfile = () => {
         navigation.navigate('ProfilePage');  
@@ -11,7 +11,7 @@ export default function HomeFooter({ navigation }) {
     }
     
     const handleContacts = () => {
-        navigation.navigate('ContactsPage');  
+        navigation.navigate('ContactsPage', { contacts: chats });  
     }
 
     return (

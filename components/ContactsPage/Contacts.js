@@ -3,21 +3,12 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated } from 'react-native';
 import Search from '../HomePage/Search';
 
-export default function Contacts() {
-    const [contacts, setContact] = useState([
-        { contact: 'Martha Craig', img: require('../HomePage/images/chats/user-photo1.png'), key: '5' },
-        { contact: 'Kieron Dotson', img: require('../HomePage/images/chats/user-photo2.png'), key: '6' },
-        { contact: 'Zack John', img: require('../HomePage/images/chats/user-photo3.png'), key: '7' },
-        { contact: 'Jamie Franco', img: require('../HomePage/images/chats/user-photo4.png'), key: '8' },
-        { contact: 'Tabitha Potter', img: require('../HomePage/images/chats/user-photo5.png'), key: '9' },
-        { contact: 'Albert Lasker', img: require('../HomePage/images/chats/user-photo6.png'), key: '10' },
-        { contact: 'Martha Craig', img: require('../HomePage/images/chats/user-photo1.png'), key: '11' },
-        { contact: 'Kieron Dotson', img: require('../HomePage/images/chats/user-photo2.png'), key: '12' },
-        { contact: 'Zack John', img: require('../HomePage/images/chats/user-photo3.png'), key: '13' },
-        { contact: 'Jamie Franco', img: require('../HomePage/images/chats/user-photo4.png'), key: '14' },
-        { contact: 'Tabitha Potter', img: require('../HomePage/images/chats/user-photo5.png'), key: '15' },
-        { contact: 'Albert Lasker', img: require('../HomePage/images/chats/user-photo6.png'), key: '16' },
-    ]);
+import { useRoute } from '@react-navigation/native';
+
+export default function Contacts({ navigation }) {
+
+    const route = useRoute();
+    const { contacts = [] } = route.params || {};
 
     const scrollY = useState(new Animated.Value(0))[0];
 
@@ -46,11 +37,12 @@ export default function Contacts() {
                                     styles.contacts,
                                     index === contacts.length && styles.lastContact,
                                 ]}
-                                onPress={handleContact}
+                                onPress={() => navigation.navigate('PrivateChat', item)}
+                                
                             >
                                 <Image style={styles.userChatImage} source={item.img} />
                                 <View style={styles.contactInfo}>
-                                    <Text style={styles.contactNameText}>{item.contact}</Text>
+                                    <Text style={styles.contactNameText}>{item.chatName}</Text>
                                 </View>
                                 <TouchableOpacity
                                     onPress={handleOpenContact}
