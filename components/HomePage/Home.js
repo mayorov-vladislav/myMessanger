@@ -35,19 +35,13 @@ export default function Home({ navigation }) {
       { chatName: 'Karen Castillo', chatPreview: 'You: Ok, See you in To… · Fri', img: require('./images/chats/user-photo3.png'), key: '29' },
     ] || []);
 
-    const handleNavigateToContacts = () => {
-      navigation.navigate('Contacts', { contacts: chats });
-    };
-
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      
-      {/* <Header></Header> */}
-  
+        
       <Chats navigation={navigation} chats={chats}></Chats>
 
-      <HomeFooter  navigation={navigation} chats={chats}></HomeFooter>
+      <HomeFooter navigation={navigation} chats={chats}></HomeFooter>
 
     </View>
     
