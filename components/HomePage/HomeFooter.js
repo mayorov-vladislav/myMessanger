@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
 
 export default function HomeFooter({ navigation, chats }) {
 
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         backgroundColor: '#fff',
-        paddingVertical: 23,
+        paddingVertical: Platform.OS === 'ios' ? 30 : 23,
         flexDirection: 'row',
         justifyContent: 'space-around', 
         borderTopWidth: 1,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 
     notificationCircle: {
         position: 'absolute',
-        top: -8,
+        top: Platform.OS === 'ios' ? -13 : -8,
         right: -11,
         backgroundColor: 'rgba(90, 212, 57, 0.16)',
         width: 20,
@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    footerIcons: {
+        bottom: Platform.OS === 'ios' ? 5 : 0,
     },
     
     notificationText: {

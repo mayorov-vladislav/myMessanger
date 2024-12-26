@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated, Platform } from 'react-native';
 
 export default function HomeHeader() {
   
@@ -43,13 +43,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 40,
+    paddingTop: Platform.OS === 'ios' ? 55 : 40,
     paddingBottom: -15,
     paddingLeft: 32,
     paddingRight: 32,
     position: 'relative',
     marginBottom: -25,
     opacity: 100,
+    backgroundColor: '#fff',
   },
 
   leftContainer: {

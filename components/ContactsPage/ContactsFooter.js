@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
 
 export default function ContactsFooter({ navigation }) {
 
@@ -35,12 +35,16 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         backgroundColor: '#fff',
-        paddingVertical: 10,
+        paddingVertical: Platform.OS === 'ios' ? 18 : 10,
         flexDirection: 'row',
         justifyContent: 'space-around', 
         borderTopWidth: 1,
         borderTopColor: '#ddd',
         zIndex: 2
+    },
+
+    footerIcons: {
+        bottom: Platform.OS === 'ios' ? 5 : 0,
     },
 
     notificationText: {

@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, Keyboard, BackHandler } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, Keyboard, BackHandler, Platform, KeyboardAvoidingView  } from 'react-native';
 import { useState, useEffect } from 'react';
 
-export default function PrivateChatFooter() {
+export default function PrivateChatFooter({ onSendMessage }) {
+    const [message, setMessage] = useState('');
     const [isKeyboardVisible, setIsKeyboardVisible] = useState(false); 
 
     useEffect(() => {
@@ -29,46 +30,61 @@ export default function PrivateChatFooter() {
         };
     }, [isKeyboardVisible]);
 
+    const handleSendMessage = () => {
+        if (message.trim()) {
+            onSendMessage(message);
+            setMessage('')
+        }
+    }
+
     return (
-        <View style={styles.footer}>
-            <View style={[styles.leftContainer, isKeyboardVisible && styles.leftContainerHidden]}>
-                <TouchableOpacity>
-                    <Image
-                        style={styles.footerImage}
-                        source={require('./images/actions.png')}
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Image
-                        style={styles.footerImage}
-                        source={require('./images/photo.png')}
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Image
-                        style={styles.footerImage}
-                        source={require('./images/emoji.png')}
-                    />
-                </TouchableOpacity>
-            </View>
+        <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'} // iOS использует padding, Android — height
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 20 : 0} // Смещение контента, чтобы не перекрывалось
+        >
+            <View style={styles.footer}>
+                {/* <View style={[styles.leftContainer, isKeyboardVisible && styles.leftContainerHidden]}>
+                    <TouchableOpacity>
+                        <Image
+                            style={styles.footerImage}
+                            source={require('./images/actions.png')}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Image
+                            style={styles.footerImage}
+                            source={require('./images/photo.png')}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Image
+                            style={styles.footerImage}
+                            source={require('./images/emoji.png')}
+                        />
+                    </TouchableOpacity>
+                </View> */}
 
-            <View style={styles.textInputContainer}>
-                <TextInput
-                    style={styles.textInput}
-                    placeholder="Aa"
-                    placeholderTextColor="#B0B0B0"
-                />
-            </View>
-
-            <View style={styles.rightContainer}>
-            <TouchableOpacity>
-                    <Image
-                        style={styles.footerImage}
-                        source={require('./images/audio.png')}
+                <View style={styles.textInputContainer}>
+                    <TextInput
+                        style={styles.textInput}
+                        placeholder="Aa"
+                        placeholderTextColor="#B0B0B0"
+                        value={message}
+                        onChangeText={setMessage}
                     />
-                </TouchableOpacity>
+                </View>
+
+                <View style={styles.rightContainer}>
+                <TouchableOpacity onPress={handleSendMessage}>
+                        <Image
+                            style={styles.footerImage}
+                            source={require('./images/audio.png')}
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 }
 
@@ -78,7 +94,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
-        paddingVertical: 10,
+        paddingVertical: Platform.OS === 'ios' ? 25 : 20,
         flexDirection: 'row',
         justifyContent: 'space-between', 
         borderTopWidth: 1,
@@ -103,20 +119,22 @@ const styles = StyleSheet.create({
     textInputContainer: {
         flex: 1,
         justifyContent: 'center',
-        marginLeft: 15,
+        marginLeft: 5,
         backgroundColor: '#ddd',
         borderRadius: 50,
+        top: Platform.OS === 'ios' ? 3 : 0,
     },
 
     rightContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: 20,
+        top: Platform.OS === 'ios' ? 3 : 0,
     },
     
     footerImage: {
-        marginRight: 5,
-        borderRadius: 5,
+        marginRight: 7,
+        borderRadius: 7,
     },
     
     textInput: {

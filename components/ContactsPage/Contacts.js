@@ -12,14 +12,6 @@ export default function Contacts({ navigation }) {
 
     const scrollY = useState(new Animated.Value(0))[0];
 
-    const handleContact = () => {
-        console.log('Contact clicked');
-    }
-
-    const handleOpenContact = () => {
-        console.log('Open Chat clicked');
-    }
-
     return (
         <View style={ {flex: 1}}>
             <FlatList
@@ -45,7 +37,7 @@ export default function Contacts({ navigation }) {
                                     <Text style={styles.contactNameText}>{item.chatName}</Text>
                                 </View>
                                 <TouchableOpacity
-                                    onPress={handleOpenContact}
+                                    onPress={() => navigation.navigate('PrivateChat', item)}
                                 >
                                     <Image
                                         source={require('./images/hello.png')}
@@ -70,6 +62,7 @@ export default function Contacts({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        
     },
 
     contactsListContainer: {

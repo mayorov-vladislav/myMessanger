@@ -17,12 +17,13 @@ export default function ContactsPage({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 30,
-        paddingLeft: 32,
-        paddingRight: 32,
-        position: 'relative', 
-      },
+  container: {
+    flex: 1,
+    paddingTop: 30,
+    paddingLeft: 32,
+    paddingRight: 32,
+    position: 'relative', 
+    backgroundColor: '#fff',
+  },
   
 });

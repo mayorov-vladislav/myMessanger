@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, Platform } from 'react-native';
 
 import { useRoute } from '@react-navigation/native';
 
@@ -52,10 +52,11 @@ export default function PrivateChatHeader({ navigation }) {
 
 const styles = StyleSheet.create({
   header: {
+    backgroundColor: '#fff',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 40,
+    paddingTop: Platform.OS === 'ios' ? 55 : 40,
     paddingBottom: -15,
     paddingLeft: 22,
     paddingRight: 32,
