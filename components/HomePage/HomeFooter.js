@@ -1,10 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
 
 export default function HomeFooter({ navigation, chats }) {
-
-    const handleProfile = () => {
-        navigation.navigate('ProfilePage');  
-    }
       
     const handleChats = () => {
         navigation.navigate('ChatsPage');  
@@ -12,6 +8,10 @@ export default function HomeFooter({ navigation, chats }) {
     
     const handleContacts = () => {
         navigation.navigate('ContactsPage', { contacts: chats });  
+    }
+    
+    const handlePreferences = () => {
+        navigation.navigate('Preferences');  
     }
 
     return (
@@ -27,7 +27,7 @@ export default function HomeFooter({ navigation, chats }) {
                 </View>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={handleProfile}>
+            <TouchableOpacity onPress={handlePreferences}>
                 <Image style={styles.footerIcons} source={require('./images/chats/profile.png')} />
             </TouchableOpacity>
         </View>

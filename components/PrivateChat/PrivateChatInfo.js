@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
 
   contactInfo: {
     alignItems: 'center',
-    // marginBottom: 2,
   },
 
   contactName: {
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
 
   imageContainer: {
     position: 'relative',
-    bottom: Platform.OS === 'ios' ? 200 : 185,
+    bottom: Platform.OS === 'ios' ? 190 : 185,
   },
 
   contactImage: {

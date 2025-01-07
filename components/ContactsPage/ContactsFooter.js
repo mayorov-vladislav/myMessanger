@@ -2,12 +2,12 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react
 
 export default function ContactsFooter({ navigation }) {
 
-    const handleProfile = () => {
-        navigation.navigate('ProfilePage');  
-    }
-      
     const handleChats = () => {
         navigation.navigate('ChatsPage');  
+    }
+
+    const handlePreferences = () => {
+        navigation.navigate('Preferences');  
     }
 
     return (
@@ -21,7 +21,7 @@ export default function ContactsFooter({ navigation }) {
                 
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={handleProfile}>
+            <TouchableOpacity onPress={handlePreferences}>
                 <Image style={styles.footerIcons} source={require('./images/profile.png')} />
             </TouchableOpacity>
         </View>

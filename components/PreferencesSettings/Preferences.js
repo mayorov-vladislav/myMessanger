@@ -1,12 +1,10 @@
 import { StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
-import PrivateChatInfo from './PrivateChatInfo';
+import PreferencesInfo from './PreferencesInfo';
 
-
-export default function PrivateChat() {
+export default function Preferences() {
     return (
         <View style={styles.container}>
-            <PrivateChatInfo></PrivateChatInfo>
-            
+            <PreferencesInfo></PreferencesInfo>
         </View>
       );
 }
