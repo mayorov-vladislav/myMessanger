@@ -15,7 +15,7 @@ export default function PrivateChatHeader({ navigation }) {
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={handleBack} style={styles.backButtonContainer}>
-        <Image style={styles.backButton} source={require('./images/left-arrow.png')} />
+        <Image style={styles.backButton} source={require('./images/back.png')} />
         <Text style={styles.backText}>Back</Text>
       </TouchableOpacity>
 
