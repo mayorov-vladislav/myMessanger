@@ -9,33 +9,28 @@ export default function PrivateChatInfo() {
   
   return (
     <SafeAreaView style={styles.container}>
-  <View style={styles.chatInfo}>
-    <Image style={styles.headContactImage} source={{ img }} />
+      <View style={styles.chatInfo}>
 
-    <View style={styles.contactInfo}>
-      <Text style={styles.contactName}>{chatName}</Text>
-      <Text style={styles.underTitle}>In Your contacts</Text>
-    </View>
+        <View style={styles.contactInfo}>
+          <Text style={styles.contactName}>{chatName}</Text>
+          <Text style={styles.underTitle}>In Your contacts</Text>
+        </View>
 
-    <View style={styles.bottomContainer}>
-      <View style={styles.imageContainer}>
-        <Image style={styles.contactImage} source={{ img }} />
-        <Image
-          style={styles.secondImage}
-          source={require('../HomePage/images/chats/user-image.png')}
-        />
+        <View style={styles.bottomContainer}>
+          <View style={styles.imageContainer}>
+            <Image style={styles.contactImage} source={img} />
+          </View>
+
+          <Text style={styles.helpfullText}>
+            Say hi to your new Facebook friend, {chatName?.split(' ')[0]}.
+          </Text>
+
+          
+        </View>
       </View>
 
-      <Text style={styles.helpfullText}>
-        Say hi to your new Facebook friend, {chatName?.split(' ')[0]}.
-      </Text>
-
-      
-    </View>
-  </View>
-
-  <PrivateChatFooter />
-</SafeAreaView>
+    <PrivateChatFooter />
+  </SafeAreaView>
 
   );
 }
@@ -44,24 +39,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    marginTop: 110,
   },
 
   chatInfo: {
     flex: 1, 
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingTop: 20,
-  },
-
-  headContactImage: {
-    height: 100,
-    width: 100,
-    marginBottom: 12,
   },
 
   contactInfo: {
     alignItems: 'center',
-    marginBottom: 2,
+    // marginBottom: 2,
   },
 
   contactName: {
@@ -81,13 +70,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end', 
     width: '100%',
-    paddingBottom: 70, 
   },
 
   imageContainer: {
     position: 'relative',
-    bottom: Platform.OS === 'ios' ? 50 : 70,
-    left: 20
+    bottom: Platform.OS === 'ios' ? 200 : 185,
   },
 
   contactImage: {
@@ -97,18 +84,9 @@ const styles = StyleSheet.create({
 
   },
 
-  secondImage: {
-    width: 60,
-    height: 60,
-    right: 18,
-    borderWidth: 2,
-    borderRadius: 50,
-    borderColor: '#fff',
-  },
-
   helpfullText: {
     position: 'absolute',
-    top: 76,
+    top:  Platform.OS === 'ios' ? 80 : 75,
     fontWeight: 'light',
     fontSize: 12,
     color: 'rgba(0, 0, 0, 0.3)',

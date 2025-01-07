@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, Platform, Button } from 'react-native';
 
 import { useRoute } from '@react-navigation/native';
 
@@ -9,42 +9,25 @@ export default function PrivateChatHeader({ navigation }) {
   const { chatName, img, contact } = route.params || {};
 
   const handleBack = () => {
-    navigation.navigate('ChatsPage');  
-}
-
-  const handleCall = () => {
-    console.log('Call clicked');
-  }
-
-  const handleVideoCall = () => {
-    console.log('Video Call clicked');
+    navigation.goBack();  
   }
 
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={handleBack} style={styles.backButtonContainer}>
-        <Image style={styles.backButton} source={require('./images/back.png')} />
+        <Image style={styles.backButton} source={require('./images/left-arrow.png')} />
+        <Text style={styles.backText}>Back</Text>
       </TouchableOpacity>
 
-      <View style={styles.leftContainer}>
-        <TouchableOpacity onPress={handleBack}>
-          <Image style={styles.userImage} source={img} />
-        </TouchableOpacity>
-        
-        <View>
+      <View style={styles.middleContainer}>
             <Text style={styles.title}>{chatName || contact}</Text> 
             <Text style={styles.underTitle}>Messanger</Text> 
-        </View>
       </View>
+    
+      <TouchableOpacity onPress={handleBack}>
+          <Image style={styles.userImage} source={img} />
+      </TouchableOpacity>
 
-      <View style={styles.rightContainer}>
-        <TouchableOpacity onPress={handleCall}>
-          <Image style={styles.headerIcons} source={require('./images/call.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleVideoCall}>
-          <Image style={styles.headerIcons} source={require('./images/video-call.png')} />
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
@@ -62,29 +45,33 @@ const styles = StyleSheet.create({
     paddingRight: 32,
     position: 'relative',
     marginBottom: -25,
-    opacity: 100,
   },
 
   backButtonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     left: 10,
     paddingTop: 3,
-    
   },
 
   backButton: {
-    width: 13, 
-    height: 23,
-  },       
-
-  leftContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    right: 3,
+    width: 29, 
+    height: 31,
+    right: 10,
+  }, 
+  
+  backText: {
+    color: '#000',
+    fontSize: 17,
+    fontWeight: '300',
+    right: 13,
   },
 
-  rightContainer: {
-    flexDirection: 'row',
+  middleContainer: {
+    flex: 1,
     alignItems: 'center',
+    right:  Platform.OS === 'ios' ? 9 : 5,
+    top: 3,
   },
 
   userImage: {
