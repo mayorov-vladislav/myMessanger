@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Animated } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Animated, Platform } from 'react-native';
 
 export default function PreferencesSettings() {
 
@@ -29,7 +29,7 @@ export default function PreferencesSettings() {
             >
                 <TouchableOpacity style={styles.settings} activeOpacity={1}>
                     <View style={styles.baseSettings}>
-                        <View style={styles.darkMode}>
+                        <View style={styles.setting}>
                             <Image source={require('./images/dark-mode.png')} style={styles.icon}/>
                             <Text style={styles.title}>Dark Mode</Text>
                             <TouchableOpacity style={styles.switchContainer} onPress={toggleDarkMode}>
@@ -41,24 +41,67 @@ export default function PreferencesSettings() {
                             </TouchableOpacity>
                         </View>
 
-                        <TouchableOpacity style={styles.activeStatus}>
+                        <TouchableOpacity style={styles.setting}>
                             <Image source={require('./images/active-status.png')} style={styles.icon}/>
                             <Text style={styles.title}>Active Status</Text>
                             <Text style={styles.infoText}>On</Text>
                             <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.username}>
+                        <TouchableOpacity style={styles.setting}>
                             <Image source={require('./images/username.png')} style={styles.icon} />
                             <Text style={styles.title}>Username</Text>
                             <Text style={styles.infoText}>m.me/Jacob_d</Text>
                             <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.phone}>
+                        <TouchableOpacity style={styles.setting}>
                             <Image source={require('./images/phone.png')} style={styles.icon} />
                             <Text style={styles.title}>Phone</Text>
                             <Text style={styles.infoText}>+1 202 555 0147</Text>
+                            <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
+                        </TouchableOpacity>
+
+                    </View>
+
+                    <View style={styles.midTextBlock}>
+                        <Text style={styles.midText}>Preferences</Text>
+                    </View>
+
+                    <View style={styles.preferencesSettings}>
+                        <TouchableOpacity style={styles.setting}>
+                            <Image source={require('./images/notifications.png')} style={styles.icon}/>
+                            <Text style={styles.title}>Notifications & Sounds</Text>
+                            <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.setting}>
+                            <Image source={require('./images/people.png')} style={styles.icon}/>
+                            <Text style={styles.title}>People</Text>
+                            <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.setting}>
+                            <Image source={require('./images/messaging-settings.png')} style={styles.icon} />
+                            <Text style={styles.title}>Messaging Setings</Text>
+                            <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
+                        </TouchableOpacity>
+                        
+                        <TouchableOpacity style={styles.setting}>
+                            <Image source={require('./images/notifications.png')} style={styles.icon}/>
+                            <Text style={styles.title}>Notifications & Sounds</Text>
+                            <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.setting}>
+                            <Image source={require('./images/people.png')} style={styles.icon}/>
+                            <Text style={styles.title}>People</Text>
+                            <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={[styles.setting, styles.lastSetting]}>
+                            <Image source={require('./images/messaging-settings.png')} style={styles.icon} />
+                            <Text style={styles.title}>Messaging Setings</Text>
                             <Image source={require('./images/arrow-right.png')} style={styles.linkButton} />
                         </TouchableOpacity>
 
@@ -86,31 +129,15 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
 
-    darkMode: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 16,
-    },
-    
-    activeStatus: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 16,
-    },
-    
-    username: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 16,
+    preferencesSettings: {
+        flexDirection: 'column',
     },
 
-    phone: {
+    setting: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        marginBottom: 16,
     },
 
     icon:{
@@ -161,5 +188,21 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 3,
         left: 3,
+    },
+
+    midTextBlock: {
+        marginTop: 2,
+        marginBottom: 18,
+    },
+
+    midText: {
+        color: 'rgba(0, 0, 0, 0.35)',
+        fontSize: 13,
+        fontWeight: '700',
+        textTransform: 'uppercase'
+    },
+
+    lastSetting: {
+        marginBottom: Platform.OS === 'ios' ? 20 : 50,
     },
 });
