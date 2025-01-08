@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, Platform, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Platform, } from 'react-native';
+
 
 export default function PreferencesHeader({ navigation }) {
 

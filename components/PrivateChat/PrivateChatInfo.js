@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View, SafeAreaView, Button, Image, Platform } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView,  Image, Platform } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import { useState } from 'react';
 import PrivateChatFooter from './PrivateChatFooter';
-
+ 
 export default function PrivateChatInfo() {
   const route = useRoute();
   const { chatName, img } = route.params || {};

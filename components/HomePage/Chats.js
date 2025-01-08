@@ -1,13 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated, Modal } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Animated, Modal } from 'react-native';
 import Search from './Search';
 import HistoryList from './HistoryList';
 
-import { useRoute } from '@react-navigation/native';
 
 export default function Chats( { navigation, chats  } ) {
-  
 
   const scrollY = new Animated.Value(0);
   const [menuVisible, setMenuVisible] = useState(false);

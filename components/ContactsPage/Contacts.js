@@ -1,6 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Animated } from 'react-native';
 import Search from '../HomePage/Search';
 
 import { useRoute } from '@react-navigation/native';
@@ -44,7 +43,8 @@ export default function Contacts({ navigation }) {
                                         style={styles.helloImage}
                                     />
                                 </TouchableOpacity>
-                                </TouchableOpacity>
+                            </TouchableOpacity>
+                            
                             <View style={styles.separatorLine} />
                         </View>
                     );

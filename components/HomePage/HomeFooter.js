@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
 
+
 export default function HomeFooter({ navigation, chats }) {
       
     const handleChats = () => {

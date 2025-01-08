@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import PreferencesInfo from './PreferencesInfo';
+import PreferencesSettings from './PreferencesSettings';
+
 
 export default function Preferences() {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <PreferencesInfo></PreferencesInfo>
-        </View>
+            <PreferencesSettings></PreferencesSettings>
+        </ScrollView>
       );
 }
 

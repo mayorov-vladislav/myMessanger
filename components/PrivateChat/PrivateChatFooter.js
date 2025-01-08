@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput, Keyboard, BackHandler, Platform, KeyboardAvoidingView  } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, TextInput, Keyboard, BackHandler, Platform, KeyboardAvoidingView  } from 'react-native';
 import { useState, useEffect } from 'react';
+
 
 export default function PrivateChatFooter({ onSendMessage }) {
     const [message, setMessage] = useState('');
@@ -40,31 +41,10 @@ export default function PrivateChatFooter({ onSendMessage }) {
     return (
         <KeyboardAvoidingView
             style={{ flex: 1 }}
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'} // iOS использует padding, Android — height
-            keyboardVerticalOffset={Platform.OS === 'ios' ? 20 : 0} // Смещение контента, чтобы не перекрывалось
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'} 
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 20 : 0} 
         >
             <View style={styles.footer}>
-                {/* <View style={[styles.leftContainer, isKeyboardVisible && styles.leftContainerHidden]}>
-                    <TouchableOpacity>
-                        <Image
-                            style={styles.footerImage}
-                            source={require('./images/actions.png')}
-                        />
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Image
-                            style={styles.footerImage}
-                            source={require('./images/photo.png')}
-                        />
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Image
-                            style={styles.footerImage}
-                            source={require('./images/emoji.png')}
-                        />
-                    </TouchableOpacity>
-                </View> */}
-
                 <View style={styles.textInputContainer}>
                     <TextInput
                         style={styles.textInput}

@@ -1,11 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
 
-export default function ContactsHeader() {
+export default function ContactsHeader({ navigation }) {
   
   const handleProfile = () => {
-    console.log('User Profile clicked');
+    navigation.navigate('Preferences');;
   }
   
   const handleNewChat = () => {
@@ -15,7 +13,6 @@ export default function ContactsHeader() {
   const handleAddContact = () => {
     console.log('Add Contact clicked');
   }
-  
 
   return (
     <View style={styles.header}>

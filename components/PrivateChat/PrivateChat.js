@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
+import { StyleSheet, View, } from 'react-native';
 import PrivateChatInfo from './PrivateChatInfo';
 
 
@@ -8,7 +8,7 @@ export default function PrivateChat() {
             <PrivateChatInfo></PrivateChatInfo>
             
         </View>
-      );
+    );
 }
 
 const styles = StyleSheet.create({

@@ -1,11 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated, Platform } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
 
-export default function HomeHeader() {
+export default function HomeHeader({ navigation }) {
   
   const handleProfile = () => {
-    console.log('User Profile clicked');
+    navigation.navigate('Preferences');
   }
   
   const handleTakePhoto = () => {
@@ -15,7 +13,6 @@ export default function HomeHeader() {
   const handleNewMessage = () => {
     console.log('New Message clicked');
   }
-  
 
   return (
     <View style={styles.header}>

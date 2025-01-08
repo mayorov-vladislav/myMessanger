@@ -1,8 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, Platform, Button } from 'react-native';
-
+import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
 import { useRoute } from '@react-navigation/native';
+
 
 export default function PrivateChatHeader({ navigation }) {
   const route = useRoute();

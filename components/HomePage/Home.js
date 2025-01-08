@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, View, } from 'react-native';
-import Header from './HomeHeader';
+
 import Chats from './Chats';
 import HomeFooter from './HomeFooter';
 

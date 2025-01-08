@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Platform } from 'react-native';
 
 export default function ContactsFooter({ navigation }) {
 

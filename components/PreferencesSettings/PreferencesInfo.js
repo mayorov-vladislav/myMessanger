@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 
 export default function PreferencesInfo() {
@@ -22,13 +22,11 @@ export default function PreferencesInfo() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#fff',
         marginTop: 50,
     },
 
     imageContainer: {
-        position: 'relative',
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 40

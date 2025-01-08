@@ -1,7 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity, TextInput, FlatList, Animated } from 'react-native';
-
+import { StyleSheet, Text, View, Image, TextInput, } from 'react-native';
 
 
 export default function Search() {
