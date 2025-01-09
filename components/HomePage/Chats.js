@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { useRoute } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList, Animated, Modal } from 'react-native';
 import Search from './Search';
 import HistoryList from './HistoryList';
 
 
-export default function Chats( { navigation, chats  } ) {
-
+export default function Chats({ navigation, chats }) {
   const scrollY = new Animated.Value(0);
   const [menuVisible, setMenuVisible] = useState(false);
   const [selectedChat, setSelectedChat] = useState(null);
+
+  const route = useRoute();
+  const { chatName, img } = route.params || {};
 
   const handleLongPress = (chat) => {
     setSelectedChat(chat);
@@ -20,9 +23,16 @@ export default function Chats( { navigation, chats  } ) {
     setSelectedChat(null);
   };
 
+  const handleContactInfo = () => {
+    if (selectedChat) {
+      closeMenu();
+      navigation.navigate('ContactInfo', { chatName: selectedChat.chatName, img: selectedChat.img });
+    }
+  };
+
   const renderMenu = () => (
     <Modal transparent visible={menuVisible} animationType="fade" onRequestClose={closeMenu}>
-      <TouchableOpacity style={styles.modalOverlay} onPress={closeMenu} activeOpacity={1} >
+      <TouchableOpacity style={styles.modalOverlay} onPress={closeMenu} activeOpacity={1}>
         <View style={styles.menuContainer}>
           <Text style={styles.menuTitle}>Опции для {selectedChat?.chatName}</Text>
           <TouchableOpacity style={styles.menuButton}>
@@ -41,7 +51,7 @@ export default function Chats( { navigation, chats  } ) {
             <Image source={require('./images/chats/send-photo.png')} style={styles.menuImage} />
             <Text style={styles.menuButtonText}>Отправить фото</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuButton}>
+          <TouchableOpacity style={styles.menuButton} onPress={handleContactInfo}>
             <Image source={require('./images/chats/settings.png')} style={styles.menuImage} />
             <Text style={styles.menuButtonText}>Настройки</Text>
           </TouchableOpacity>
@@ -72,7 +82,7 @@ export default function Chats( { navigation, chats  } ) {
             <TouchableOpacity
               style={[
                 styles.chat,
-                (index === chats.length - -1 || index === chats.length - -1) && styles.lastChat, 
+                (index === chats.length - 1 || index === chats.length - 1) && styles.lastChat,
               ]}
               onLongPress={() => handleLongPress(item)}
               onPress={() => navigation.navigate('PrivateChat', item)}

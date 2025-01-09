@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: Platform.OS === 'ios' ? 95 : 65,
+    paddingTop: Platform.OS === 'ios' ? 95 : 35,
     paddingLeft: 22,
     paddingRight: 32,
     position: 'relative',
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   backButton: {
     width: 13,
     height: 23,
+    top: Platform.OS === 'ios' ? 0 : 30
   },
 
 });

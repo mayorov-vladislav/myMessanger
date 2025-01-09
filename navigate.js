@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './components/HomePage/Home';
 import ContactsPage from './components/ContactsPage/ContactsPage';
-import ContactInfo from "./components/ContactMenu/ContactInfo";
+import ContactInfo from "./components/ContactMenu/Contact";
 import PrivateChat from "./components/PrivateChat/PrivateChat";
 import Preferences from "./components/PreferencesSettings/Preferences";
 
