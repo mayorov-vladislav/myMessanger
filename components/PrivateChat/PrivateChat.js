@@ -2,10 +2,10 @@ import { StyleSheet, View, } from 'react-native';
 import PrivateChatInfo from './PrivateChatInfo';
 
 
-export default function PrivateChat() {
+export default function PrivateChat({ navigation }) {
     return (
         <View style={styles.container}>
-            <PrivateChatInfo></PrivateChatInfo>
+            <PrivateChatInfo navigation={navigation}></PrivateChatInfo>
             
         </View>
     );

@@ -62,7 +62,6 @@ export default function Contacts({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        
     },
 
     contactsListContainer: {

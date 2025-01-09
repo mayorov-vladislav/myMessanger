@@ -24,8 +24,9 @@ export default function PreferencesSettings() {
                 onScroll={(e) => {
                     scrollY.setValue(e.nativeEvent.contentOffset.y);
                 }}
-                scrollEventThrottle={16}
                 showsVerticalScrollIndicator={false}
+                scrollEventThrottle={16}
+                decelerationRate='fast'
             >
                 <TouchableOpacity style={styles.settings} activeOpacity={1}>
                     <View style={styles.baseSettings}>

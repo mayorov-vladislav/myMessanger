@@ -22,7 +22,7 @@ export default function Chats( { navigation, chats  } ) {
 
   const renderMenu = () => (
     <Modal transparent visible={menuVisible} animationType="fade" onRequestClose={closeMenu}>
-      <TouchableOpacity style={styles.modalOverlay} onPress={closeMenu}>
+      <TouchableOpacity style={styles.modalOverlay} onPress={closeMenu} activeOpacity={1} >
         <View style={styles.menuContainer}>
           <Text style={styles.menuTitle}>Опции для {selectedChat?.chatName}</Text>
           <TouchableOpacity style={styles.menuButton}>

@@ -1,10 +1,15 @@
-import { StyleSheet, Text, View, SafeAreaView,  Image, Platform } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView,  Image, Platform, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import PrivateChatFooter from './PrivateChatFooter';
  
-export default function PrivateChatInfo() {
+
+export default function PrivateChatInfo({ navigation }) {
   const route = useRoute();
   const { chatName, img } = route.params || {};
+
+  const handleContactInfo = () => {
+    navigation.navigate('ContactInfo', { chatName, img });  
+  }
   
   return (
     <SafeAreaView style={styles.container}>
@@ -16,9 +21,9 @@ export default function PrivateChatInfo() {
         </View>
 
         <View style={styles.bottomContainer}>
-          <View style={styles.imageContainer}>
+          <TouchableOpacity style={styles.imageContainer} onPress={handleContactInfo}>
             <Image style={styles.contactImage} source={img} />
-          </View>
+          </TouchableOpacity>
 
           <Text style={styles.helpfullText}>
             Say hi to your new Facebook friend, {chatName?.split(' ')[0]}.

@@ -9,6 +9,10 @@ export default function PrivateChatHeader({ navigation }) {
   const handleBack = () => {
     navigation.goBack();  
   }
+  
+  const handleContactInfo = () => {
+    navigation.navigate('ContactInfo', { chatName, img });  
+  }
 
   return (
     <View style={styles.header}>
@@ -22,7 +26,7 @@ export default function PrivateChatHeader({ navigation }) {
             <Text style={styles.underTitle}>Messanger</Text> 
       </View>
     
-      <TouchableOpacity onPress={handleBack}>
+      <TouchableOpacity onPress={handleContactInfo}>
           <Image style={styles.userImage} source={img} />
       </TouchableOpacity>
 

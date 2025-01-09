@@ -4,11 +4,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './components/HomePage/Home';
 import ContactsPage from './components/ContactsPage/ContactsPage';
+import ContactInfo from "./components/ContactMenu/ContactInfo";
 import PrivateChat from "./components/PrivateChat/PrivateChat";
 import Preferences from "./components/PreferencesSettings/Preferences";
 
 import HomeHeader from "./components/HomePage/HomeHeader";
 import ContactsHeader from "./components/ContactsPage/ContactsHeader";
+import ContactInfoHeader from "./components/ContactMenu/ContactInfoHeader";
 import PrivateChatHeader from "./components/PrivateChat/PrivateChatHeader";
 import PreferencesHeader from "./components/PreferencesSettings/PreferencesHeader";
 
@@ -38,7 +40,6 @@ export default function Navigate() {
             component={PrivateChat} 
             options={{
               header: ({ navigation }) => <PrivateChatHeader navigation={navigation} />
-
           }} />
 
           <Stack.Screen 
@@ -46,8 +47,16 @@ export default function Navigate() {
             component={Preferences} 
             options={{
               header: ({ navigation }) => <PreferencesHeader navigation={navigation} />
-
           }} />
+          
+          <Stack.Screen 
+            name="ContactInfo" 
+            component={ContactInfo} 
+            options={{
+              header: ({ navigation }) => <ContactInfoHeader navigation={navigation} />
+          }} />
+
+          
         </Stack.Navigator>
       </NavigationContainer>
     );
