@@ -11,7 +11,6 @@ export default function Chats({ navigation, chats }) {
   const [selectedChat, setSelectedChat] = useState(null);
 
   const route = useRoute();
-  const { chatName, img } = route.params || {};
 
   const handleLongPress = (chat) => {
     setSelectedChat(chat);
