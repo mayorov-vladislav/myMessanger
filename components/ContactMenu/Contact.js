@@ -1,11 +1,11 @@
 import { StyleSheet, SafeAreaView, } from 'react-native';
 import ContactInfo from './ContactInfo';
  
-export default function Contact() {
+export default function Contact({ navigation }) {
   
   return (
     <SafeAreaView style={styles.container}>
-      <ContactInfo> </ContactInfo>
+      <ContactInfo navigation={navigation}> </ContactInfo>
 
     </SafeAreaView>
 
